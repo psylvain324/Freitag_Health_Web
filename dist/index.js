@@ -195,7 +195,7 @@ var GET_USER_INFO_WITH_JWT_PATH = `/webdev.v1.WebDevAuthPublicService/GetUserInf
 var OAuthService = class {
   constructor(client) {
     this.client = client;
-    console.log("[OAuth] Initialized with baseURL:", ENV.oAuthServerUrl);
+    //console.log("[OAuth] Initialized with baseURL:", ENV.oAuthServerUrl);
     // if (!ENV.oAuthServerUrl) {
     //   console.error(
     //     "[OAuth] ERROR: OAUTH_SERVER_URL is not configured! Set OAUTH_SERVER_URL environment variable."
