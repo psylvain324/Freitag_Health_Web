@@ -21,6 +21,7 @@ export default function Home() {
           <div className="text-2xl font-bold gradient-text">Freitag Health Insurance</div>
           <div className="hidden md:flex gap-1">
             <a href="#about" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">About</a>
+            <a href="#sales" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Our Services</a>
             <a href="#benefits" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Why Join</a>
             <a href="#testimonials" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Success Stories</a>
             <a href="#contact" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Contact</a>
@@ -80,7 +81,7 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
               <div className="relative bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl p-8 border border-accent/20">
-                //TODO: Add image
+              <img src="./images/Steph_FG.avif" alt="Stephanie Freitag" className="w-full h-auto rounded-xl" />
               </div>
             </div>
             <div>
@@ -260,13 +261,6 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
-              <div className="relative bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl p-8 border border-accent/20">
-                <img 
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663397693691/QAp5dBwcR69Bs4yRELPLtH/team_collaboration_photo_d9272da1.webp"
-                  alt="Team"
-                  className="w-full h-auto rounded-xl"
-                />
-              </div>
             </div>
             <div>
               <div className="space-y-8">
@@ -311,6 +305,7 @@ export default function Home() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="#about" className="text-muted-foreground hover:text-accent transition">About</a></li>
+                <li><a href="#sales" className="text-muted-foreground hover:text-accent transition">Our Services</a></li>
                 <li><a href="#benefits" className="text-muted-foreground hover:text-accent transition">Why Join</a></li>
                 <li><a href="#testimonials" className="text-muted-foreground hover:text-accent transition">Success Stories</a></li>
                 <li><a href="/apply" className="text-muted-foreground hover:text-accent transition">Apply Now</a></li>

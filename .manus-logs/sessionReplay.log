@@ -136,3 +136,5 @@
 [2026-03-04T20:11:18.700Z] {"timestamp":1772655077205,"kind":"scroll","url":"http://localhost:3000/#about","viewport":{"width":1440,"height":719},"payload":{"scrollX":0,"scrollY":3839,"documentHeight":5049,"viewportHeight":719}}
 [2026-03-04T20:11:18.700Z] {"timestamp":1772655077705,"kind":"scroll","url":"http://localhost:3000/#about","viewport":{"width":1440,"height":719},"payload":{"scrollX":0,"scrollY":1162.5,"documentHeight":5049,"viewportHeight":719}}
 [2026-03-04T20:11:18.700Z] {"timestamp":1772655078206,"kind":"scroll","url":"http://localhost:3000/#about","viewport":{"width":1440,"height":719},"payload":{"scrollX":0,"scrollY":702.5,"documentHeight":5049,"viewportHeight":719}}
+[2026-03-04T21:50:55.486Z] {"timestamp":1772661053894,"kind":"scroll","url":"http://localhost:3000/#about","viewport":{"width":882,"height":719},"payload":{"scrollX":0,"scrollY":1.5,"documentHeight":5643,"viewportHeight":719}}
+[2026-03-04T21:50:55.486Z] {"timestamp":1772661054565,"kind":"scroll","url":"http://localhost:3000/#about","viewport":{"width":882,"height":719},"payload":{"scrollX":0,"scrollY":441,"documentHeight":5643,"viewportHeight":719}}
