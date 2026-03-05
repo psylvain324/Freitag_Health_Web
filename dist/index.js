@@ -47,6 +47,7 @@ var leads = mysqlTable("leads", {
 });
 
 // server/_core/env.ts
+import { Resend } from "resend";
 var ENV = {
   appId: process.env.VITE_APP_ID ?? "",
   cookieSecret: process.env.JWT_SECRET ?? "",
@@ -55,8 +56,40 @@ var ENV = {
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",
   isProduction: process.env.NODE_ENV === "production",
   forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
-  forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? ""
+  forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
+  resendApiKey: process.env.RESEND_API_KEY ?? ""
 };
+var resend = ENV.resendApiKey ? new Resend(ENV.resendApiKey) : null;
+var CONTACT_EMAILS = ["ssfreitaginsurance@gmail.com", "TravelVision3024@gmail.com"];
+async function sendContactEmail(data) {
+  if (!resend) {
+    console.warn("[Contact] Resend not configured - set RESEND_API_KEY");
+    return false;
+  }
+  const html = `
+    <h2>New Contact Form Submission</h2>
+    <p><strong>From:</strong> ${data.firstName} ${data.lastName} &lt;${data.email}&gt;</p>
+    <p><strong>Message:</strong></p>
+    <p>${(data.message || "").replace(/\n/g, "<br>")}</p>
+  `;
+  try {
+    const { data: result, error } = await resend.emails.send({
+      from: "Freitag Health Contact <onboarding@resend.dev>",
+      to: CONTACT_EMAILS,
+      replyTo: data.email,
+      subject: `Contact Form: ${data.firstName} ${data.lastName}`,
+      html
+    });
+    if (error) {
+      console.error("[Contact] Resend error:", error);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[Contact] Send failed:", err);
+    return false;
+  }
+}
 
 // server/db.ts
 var _db = null;
@@ -659,6 +692,23 @@ var appRouter = router({
           message: "Failed to fetch leads"
         });
       }
+    })
+  }),
+  contact: router({
+    submitContact: publicProcedure.input(z2.object({
+      firstName: z2.string().min(1, "First name is required"),
+      lastName: z2.string().min(1, "Last name is required"),
+      email: z2.string().email("Valid email is required"),
+      message: z2.string().min(1, "Message is required")
+    })).mutation(async ({ input }) => {
+      const sent = await sendContactEmail(input);
+      if (!sent) {
+        throw new TRPCError3({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to send message. Please try again or email us directly."
+        });
+      }
+      return { success: true, message: "Thanks for submitting!" };
     })
   })
 });

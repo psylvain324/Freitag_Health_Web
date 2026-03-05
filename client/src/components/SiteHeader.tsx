@@ -1,13 +1,13 @@
+import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
-  { href: "#about", label: "About" },
-  { href: "#sales", label: "Our Services" },
-  { href: "#benefits", label: "Why Join" },
-  { href: "#testimonials", label: "Success Stories" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#benefits", label: "Why Join" },
+  { href: "/#testimonials", label: "Success Stories" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 function NavLink({
@@ -41,7 +41,7 @@ export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 100);
     handleScroll(); // init
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -63,22 +63,30 @@ export default function SiteHeader() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`relative fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out rounded-b-xl shadow-md ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-[0_1px_0_0] shadow-border/50"
-          : "bg-transparent"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-lg"
+          : "bg-background"
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <motion.a
-          href="#"
-          className="text-xl md:text-2xl font-bold gradient-text select-none"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Freitag Health Insurance
-        </motion.a>
+        <Link href="/">
+          <motion.div
+            className="flex items-center gap-3 shrink-0 h-10 md:h-12"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <img
+              src="/images/F_Insurance.png"
+              alt=""
+              className="h-full w-auto max-h-full object-contain object-left"
+            />
+            <span style={{marginLeft: '-0.95em'}} className="header-logo-text text-xl md:text-2xl whitespace-nowrap">
+              reitag Health Insurance
+            </span>
+          </motion.div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
@@ -87,8 +95,19 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        {/* CTA + Mobile Menu Button */}
-        <div className="flex items-center gap-3">
+        {/* Social icons (between Contact and button) + CTA + Mobile Menu */}
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="hidden md:flex items-center gap-1" aria-label="Social links">
+            <motion.a href="#" aria-label="LinkedIn" className="p-1.5 rounded-lg text-foreground/70 hover:text-accent hover:bg-accent/10 transition-colors" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain" />
+            </motion.a>
+            <motion.a href="#" aria-label="Instagram" className="p-1.5 rounded-lg text-foreground/70 hover:text-accent hover:bg-accent/10 transition-colors" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <img src="/images/Instagram_Logo.jpeg" alt="" className="h-5 w-5 object-contain rounded-sm" />
+            </motion.a>
+            <motion.a href="#" aria-label="Facebook" className="p-1.5 rounded-lg text-foreground/70 hover:text-accent hover:bg-accent/10 transition-colors" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <img src="/images/Facebook_Icon.png" alt="" className="h-5 w-5 object-contain" />
+            </motion.a>
+          </div>
           <motion.a
             href="/apply"
             initial={{ opacity: 0 }}
@@ -96,7 +115,7 @@ export default function SiteHeader() {
             transition={{ delay: 0.3 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/25 hover:shadow-accent/30 hover:bg-accent/95 transition-all duration-300"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-200 shadow-sm"
           >
             Start Application
             <ArrowRight className="w-4 h-4" />
@@ -132,7 +151,7 @@ export default function SiteHeader() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden z-50"
+              className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden z-50 shadow-lg"
             >
               <div className="container py-4 space-y-1">
                 {NAV_ITEMS.map((item, i) => (

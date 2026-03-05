@@ -1,28 +1,62 @@
+import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Star, Users, TrendingUp, CheckCircle, ArrowRight, Target, Zap } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Star, Users, TrendingUp, CheckCircle, ArrowRight, Target, Zap, Trophy, AlertCircle } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 
 export default function Home() {
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactError, setContactError] = useState("");
+  const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
+
+  const submitContactMutation = trpc.contact.submitContact.useMutation({
+    onSuccess: () => {
+      setContactSubmitted(true);
+      setContactForm({ firstName: "", lastName: "", email: "", message: "" });
+      setContactError("");
+    },
+    onError: (err: Error) => {
+      setContactError(err.message || "Failed to send message. Please try again.");
+    },
+  });
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setContactError("");
+    submitContactMutation.mutate(contactForm);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
       {/* Hero Section with Background Image */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
+      <section className="pt-32 pb-24 md:pt-44 md:pb-36 relative overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
             backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663397693691/QAp5dBwcR69Bs4yRELPLtH/tampa_skyline_hero_f0df03fc.webp')",
-            opacity: 0.3
+            opacity: 0.2
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-background pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background pointer-events-none" />
         <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-block mb-4 px-4 py-2 bg-accent/10 rounded-full">
-                <span className="text-sm font-semibold text-accent">Join a Winning Team</span>
+              <div className="inline-block mb-5">
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                    bg-accent/10 border border-accent/10 text-accent
+                    shadow-sm hover:bg-accent/20 hover:shadow-md
+                    transition-all duration-200"
+                >
+                  <Trophy className="w-4 h-4 shrink-0" />
+                  <span className="text-sm font-semibold tracking-wide">Join a Winning Team</span>
+                </div>
               </div>
               <h1 className="mb-6 leading-tight">
                 Build Your Insurance <span className="gradient-text">Career With Us</span>
@@ -44,29 +78,27 @@ export default function Home() {
               </div>
             </div>
             <div className="relative hidden md:block">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-blue-500/20 rounded-2xl blur-3xl" />
-              <div className="relative bg-gradient-to-br from-accent/10 to-blue-500/10 rounded-2xl p-8 border border-accent/20">
-                <img src="/images/pexels-fauxels-3184418.jpg" alt="Tampa Skyline" className="w-full h-auto rounded-xl" />
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl shadow-accent/10 ring-1 ring-black/5">
+                <img src="/images/pexels-fauxels-3184360.avif" alt="Sales Team" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <div className="py-5 md:py-6" aria-hidden><div className="section-separator" /></div>
+
       {/* About the Leader Section */}
-      <section id="about" className="section-padding bg-card/50 border-y border-border">
+      <section id="about" className="section-padding section-alt">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
-              <div className="relative bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl p-8 border border-accent/20">
-                <img src="/images/Steph_FG.avif" alt="Stephanie Freitag" className="w-full h-auto rounded-xl" />
-              </div>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <img src="/images/Steph_FG.avif" alt="Stephanie Freitag" className="w-full h-auto object-cover" />
             </div>
             <div>
               <div className="mb-4">
                 <div className="divider-accent mb-4" />
-                <span className="text-sm font-semibold text-accent uppercase tracking-wide">About the Leader</span>
+                <span className="text-sm font-semibold text-accent uppercase tracking-widest">About the Leader</span>
               </div>
               <h2 className="mb-6">Stephanie - Your Insurance Leadership Partner</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -107,12 +139,14 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="py-5 md:py-6" aria-hidden><div className="section-separator" /></div>
+
       {/* Team Benefits Section */}
       <section id="benefits" className="section-padding">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div className="divider-accent mx-auto mb-4" />
-            <span className="text-sm font-semibold text-accent uppercase tracking-wide">Why Join Us</span>
+            <span className="text-sm font-semibold text-accent uppercase tracking-widest">Why Join Us</span>
             <h2 className="mt-4 mb-6">Four Pillars of Success</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We provide everything you need to build a thriving insurance career with comprehensive training, unlimited earning potential, and a supportive community.
@@ -142,9 +176,9 @@ export default function Home() {
                 description: "We believe that the right mindset and 'Why' are key to success within the industry. Discover the ability to push yourself to achieve things you never thought possible within your career. We frequently run seminars, training, and other motivational extracurriculars to get you motivated and keep you there."
               }
             ].map((benefit, idx) => (
-              <Card key={idx} className="card-hover border-accent/20 hover:border-accent/50 bg-card/50">
+              <Card key={idx} className="card-hover border-border/80 bg-card/50 hover:border-accent/30">
                 <CardHeader>
-                  <benefit.icon className="w-12 h-12 text-accent mb-4" />
+                  <benefit.icon className="w-10 h-10 text-accent mb-4" />
                   <CardTitle>{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -156,12 +190,14 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="py-5 md:py-6" aria-hidden><div className="section-separator" /></div>
+
       {/* Testimonials Section */}
-      <section id="testimonials" className="section-padding bg-card/50 border-y border-border">
+      <section id="testimonials" className="section-padding section-alt">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div className="divider-accent mx-auto mb-4" />
-            <span className="text-sm font-semibold text-accent uppercase tracking-wide">Success Stories</span>
+            <span className="text-sm font-semibold text-accent uppercase tracking-widest">Success Stories</span>
             <h2 className="mt-4 mb-6">Hear From Our Team</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Real stories from agents who have transformed their careers by joining our team.
@@ -189,7 +225,7 @@ export default function Home() {
                 rating: 5
               }
             ].map((testimonial, idx) => (
-              <Card key={idx} className="border-accent/20 bg-background">
+              <Card key={idx} className="border-border/80 bg-card shadow-sm">
                 <CardHeader>
                   <div className="flex gap-1 mb-4">
                     {Array(testimonial.rating).fill(0).map((_, i) => (
@@ -212,9 +248,10 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="py-5 md:py-6" aria-hidden><div className="section-separator" /></div>
+
       {/* CTA Section */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent pointer-events-none" />
+      <section className="section-padding relative overflow-hidden bg-gradient-to-b from-background via-accent/[0.03] to-background">
         <div className="container relative z-10 text-center">
           <h2 className="mb-6">Ready to Transform Your Career?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -230,22 +267,31 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="py-5 md:py-6" aria-hidden><div className="section-separator" /></div>
+
       {/* Contact Us Section */}
-      <section id="contact" className="section-padding bg-card/50 border-y border-border">
+      <section id="contact" className="section-padding section-alt">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <div className="divider-accent mx-auto mb-4" />
             <h2>Get In Touch Today!</h2>
+            <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Send us a message to schedule a health screening or career inquiry
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
-              <div className="relative bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl p-8 border border-accent/20">
-                <source src="/images/Steph_FG.avif" type="image/avif" />
+          <div className="space-y-16">
+            <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start w-full max-w-7xl mx-auto px-4 md:px-8">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 aspect-video min-h-[240px]">
+                <iframe
+                  src="https://www.google.com/maps?q=5701+E+Hillsborough+Ave+%231120,+Tampa,+FL+33610&output=embed"
+                  title="Office Location - 5701 E Hillsborough Ave #1120, Tampa, FL 33610"
+                  className="w-full h-full border-0 rounded-2xl"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
-            </div>
-            <div>
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold mb-3">Address</h3>
                   <p className="text-muted-foreground leading-relaxed">
@@ -271,14 +317,98 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="flex flex-col items-center w-full max-w-5xl mx-auto px-4 md:px-8">
+              <h3 className="text-xl font-semibold mb-6">Schedule A Call with me today!</h3>
+              {contactSubmitted ? (
+                <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 text-center">
+                  <CheckCircle className="w-14 h-14 text-accent mx-auto mb-4" />
+                  <p className="text-lg font-medium mb-2">Thanks for submitting!</p>
+                  <p className="text-muted-foreground text-sm mb-6">
+                    We&apos;ll get back to you shortly.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => setContactSubmitted(false)}
+                    className="bg-accent/10 border-accent/20 hover:bg-accent/20"
+                  >
+                    Send Another Message
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-5 w-full">
+                  {contactError && (
+                    <div className="p-4 bg-destructive/10 border border-destructive/30 rounded-lg flex gap-3">
+                      <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-destructive">{contactError}</p>
+                    </div>
+                  )}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="contact-firstName">First Name</Label>
+                      <Input
+                        id="contact-firstName"
+                        value={contactForm.firstName}
+                        onChange={(e) => setContactForm((p) => ({ ...p, firstName: e.target.value }))}
+                        placeholder="First Name"
+                        className="mt-2"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="contact-lastName">Last Name</Label>
+                      <Input
+                        id="contact-lastName"
+                        value={contactForm.lastName}
+                        onChange={(e) => setContactForm((p) => ({ ...p, lastName: e.target.value }))}
+                        placeholder="Last Name"
+                        className="mt-2"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="contact-email">Email</Label>
+                    <Input
+                      id="contact-email"
+                      type="email"
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm((p) => ({ ...p, email: e.target.value }))}
+                      placeholder="Email"
+                      className="mt-2"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="contact-message">Message</Label>
+                    <Textarea
+                      id="contact-message"
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm((p) => ({ ...p, message: e.target.value }))}
+                      placeholder="Message"
+                      className="mt-2 min-h-32"
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-center">
+                    <Button
+                      type="submit"
+                      disabled={submitContactMutation.isPending}
+                      className="h-12 px-16 bg-accent hover:bg-accent/90 text-accent-foreground"
+                    >
+                      {submitContactMutation.isPending ? "Sending..." : "Send"}
+                    </Button>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50 py-12">
-        <div className="container">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+      <footer className="border-t border-border bg-muted/30 py-14">
+        <div className="container max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-x-14 md:gap-y-8 mb-12 text-center md:text-left">
             <div>
               <h4 className="font-semibold mb-4">Freitag Health Insurance</h4>
               <p className="text-sm text-muted-foreground">Building successful careers in health insurance since 2019. Located in Tampa, Florida.</p>
@@ -305,13 +435,28 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Follow Us</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-muted-foreground hover:text-accent transition">LinkedIn</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-accent transition">Facebook</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-accent transition">Instagram</a></li>
+                <li>
+                  <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
+                    <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain" />
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
+                    <img src="/images/Facebook_Icon.png" alt="" className="h-5 w-5 object-contain" />
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
+                    <img src="/images/Instagram_Logo.jpeg" alt="" className="h-5 w-5 object-contain rounded-sm" />
+                    Instagram
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <div className="border-t border-border pt-10 text-center text-sm text-muted-foreground">
             <p>&copy; 2026 Freitag Health Insurance. All rights reserved.</p>
           </div>
         </div>

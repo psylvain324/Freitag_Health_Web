@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -119,16 +119,19 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
   }
-  h1 { @apply text-5xl md:text-6xl; }
-  h2 { @apply text-4xl md:text-5xl; }
+  h1 { @apply text-4xl sm:text-5xl md:text-6xl tracking-tight; }
+  h2 { @apply text-3xl sm:text-4xl md:text-5xl tracking-tight; }
   h3 { @apply text-2xl md:text-3xl; }
   h4 { @apply text-xl md:text-2xl; }
   h5 { @apply text-lg md:text-xl; }
@@ -190,19 +193,61 @@
 
   /* Elegant section styling */
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-14 md:py-20 lg:py-24;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-accent via-blue-500 to-cyan-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent via-blue-600 to-indigo-500 bg-clip-text text-transparent;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+    @apply transition-all duration-300 ease-out hover:shadow-xl hover:shadow-accent/5 hover:-translate-y-0.5;
   }
 
   .divider-accent {
-    @apply h-1 w-16 bg-gradient-to-r from-accent to-blue-400 rounded-full;
+    @apply h-0.5 w-12 sm:w-16 bg-gradient-to-r from-accent to-blue-500 rounded-full;
+  }
+
+  /* Header logo branding - pairs with logo image, health/insurance aesthetic */
+  .header-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    background: linear-gradient(
+      135deg,
+      oklch(0.3 0.05 265) 0%,
+      oklch(0.4 0.14 259) 40%,
+      oklch(0.36 0.1 235) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Subtle section backgrounds for depth */
+  .section-alt {
+    @apply bg-muted/30;
+  }
+
+  /* Subtle horizontal section separators - more pronounced with shadow */
+  .section-separator {
+    width: min(92%, 64rem);
+    height: 2px;
+    margin: 0 auto;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      oklch(0.65 0.015 260 / 0.4) 15%,
+      oklch(0.5 0.15 259 / 0.5) 50%,
+      oklch(0.65 0.015 260 / 0.4) 85%,
+      transparent 100%
+    );
+    box-shadow: 0 1px 4px oklch(0.4 0.1 260 / 0.12);
+    border-radius: 1px;
+  }
+
+  .fixed {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
   html {

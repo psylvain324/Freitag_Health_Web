@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "wouter";
+import SiteHeader from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -80,8 +82,10 @@ export default function LeadForm() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center py-12 px-4">
-        <Card className="max-w-md w-full border-accent/20">
+      <div className="min-h-screen bg-background">
+        <SiteHeader />
+        <div className="flex items-center justify-center pt-32 pb-16 px-4">
+        <Card className="max-w-md w-full border-border shadow-xl">
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
               <CheckCircle className="w-16 h-16 text-accent" />
@@ -93,29 +97,38 @@ export default function LeadForm() {
             <p className="text-muted-foreground mb-6">
               We're excited about your interest in joining our team. Our leadership will review your application and contact you within 24 hours.
             </p>
-            <Button 
-              onClick={() => setSubmitted(false)}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground w-full"
-            >
-              Submit Another Application
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button 
+                onClick={() => setSubmitted(false)}
+                className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+              >
+                Submit Another Application
+              </Button>
+              <Link href="/">
+                <Button variant="outline" className="w-full sm:w-auto">
+                  Return to Home
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4">
-      <div className="container max-w-2xl">
-        <div className="text-center mb-12">
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <div className="container max-w-2xl pt-32 pb-20">
+        <div className="text-center mb-14">
           <h1 className="mb-4">Join Our Elite Team</h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Take the first step towards a rewarding career in insurance. Complete this quick application to get started.
           </p>
         </div>
 
-        <Card className="border-accent/20">
+        <Card className="border-border shadow-lg">
           <CardHeader>
             <div className="flex justify-between items-center mb-4">
               <div className="flex gap-2">
