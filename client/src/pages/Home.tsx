@@ -1,33 +1,12 @@
+import SiteHeader from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Star, Users, TrendingUp, CheckCircle, ArrowRight, Target, Zap } from "lucide-react";
-import { useState } from "react";
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll for navbar effects
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => {
-      setScrolled(window.scrollY > 50);
-    });
-  }
-
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur shadow-sm" : "bg-transparent"}`}>
-        <div className="container flex items-center justify-between py-4">
-          <div className="text-2xl font-bold gradient-text">Freitag Health Insurance</div>
-          <div className="hidden md:flex gap-1">
-            <a href="#about" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">About</a>
-            <a href="#sales" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Our Services</a>
-            <a href="#benefits" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Why Join</a>
-            <a href="#testimonials" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Success Stories</a>
-            <a href="#contact" className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-accent/10 hover:text-accent transition-all duration-200">Contact</a>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Hero Section with Background Image */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
@@ -67,7 +46,7 @@ export default function Home() {
             <div className="relative hidden md:block">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-blue-500/20 rounded-2xl blur-3xl" />
               <div className="relative bg-gradient-to-br from-accent/10 to-blue-500/10 rounded-2xl p-8 border border-accent/20">
-                <img src="./images/Steph_FG.avif" alt="Tampa Skyline" className="w-full h-auto rounded-xl" />
+                <img src="/images/pexels-fauxels-3184418.jpg" alt="Tampa Skyline" className="w-full h-auto rounded-xl" />
               </div>
             </div>
           </div>
@@ -81,7 +60,7 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
               <div className="relative bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl p-8 border border-accent/20">
-              <img src="./images/Steph_FG.avif" alt="Stephanie Freitag" className="w-full h-auto rounded-xl" />
+                <img src="/images/Steph_FG.avif" alt="Stephanie Freitag" className="w-full h-auto rounded-xl" />
               </div>
             </div>
             <div>
@@ -256,11 +235,14 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <div className="divider-accent mx-auto mb-4" />
-            <h2>Get In Touch</h2>
+            <h2>Get In Touch Today!</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl" />
+              <div className="relative bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl p-8 border border-accent/20">
+                <source src="/images/Steph_FG.avif" type="image/avif" />
+              </div>
             </div>
             <div>
               <div className="space-y-8">
@@ -299,7 +281,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h4 className="font-semibold mb-4">Freitag Health Insurance</h4>
-              <p className="text-sm text-muted-foreground">Building successful careers in health insurance since 2010. Located in Tampa, Florida.</p>
+              <p className="text-sm text-muted-foreground">Building successful careers in health insurance since 2019. Located in Tampa, Florida.</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
@@ -325,7 +307,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="text-muted-foreground hover:text-accent transition">LinkedIn</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-accent transition">Facebook</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-accent transition">Twitter</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-accent transition">Instagram</a></li>
               </ul>
             </div>
           </div>

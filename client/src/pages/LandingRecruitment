@@ -1,0 +1,140 @@
+              </h2>
+              <p className="text-navy-light text-lg leading-relaxed mb-6">
+                Stephanie Freitag has been one of the highest producers in one
+                of the highest-producing offices in the country. When you join
+                her team, you work directly with a proven leader who is invested
+                in your success.
+              </p>
+              <ul className="space-y-3">
+                {checkpoints.map((item, i) => (
+                  <motion.li
+                    key={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    custom={i * 0.5}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-periwinkle mt-0.5 shrink-0" />
+                    <span className="text-navy-light">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tampa Section */}
+      <section className="relative py-20 md:py-28">
+        <div className="absolute inset-0">
+          <img
+            src={TAMPA_IMG}
+            alt="Tampa, Florida skyline"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-navy/75" />
+        </div>
+        <div className="relative z-10 container text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+          >
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-gold" />
+              <span className="text-gold font-semibold">Tampa, Florida</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+              Based in the Sunshine State
+            </h2>
+            <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">
+              Our headquarters are in beautiful Tampa, FL — but our team works
+              nationwide. Whether you're local or remote, you'll have the
+              support and resources to build an incredible career.
+            </p>
+            <a href={MAIN_CTA_URL} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-gold hover:bg-gold-dark text-navy font-bold rounded-full px-10 py-6 text-lg shadow-xl hover:shadow-2xl transition-all"
+              >
+                Start Your Journey Today
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-16 md:py-24 bg-cream">
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">
+              Ready to Change Your Life?
+            </h2>
+            <p className="text-navy-light text-lg mb-8 leading-relaxed">
+              Take the first step toward a rewarding career in health insurance.
+              Schedule a free 30-minute career screening call with our team and
+              discover if this opportunity is right for you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href={MAIN_CTA_URL} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="bg-periwinkle hover:bg-periwinkle-light text-white font-bold rounded-full px-10 py-6 text-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+                >
+                  Schedule a Career Call
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </a>
+            </div>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-navy-light text-sm">
+              <a
+                href="tel:7272493807"
+                className="flex items-center gap-2 hover:text-periwinkle transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                727-249-3807
+              </a>
+              <span className="hidden sm:inline text-border">|</span>
+              <a
+                href="mailto:ssfreitaginsurance@gmail.com"
+                className="flex items-center gap-2 hover:text-periwinkle transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                ssfreitaginsurance@gmail.com
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-navy py-8">
+        <div className="container text-center">
+          <img
+            src={LOGO_URL}
+            alt="Freitag Health Insurance"
+            className="h-10 object-contain brightness-0 invert mx-auto mb-4"
+          />
+          <p className="text-white/50 text-sm">
+            &copy; {new Date().getFullYear()} Freitag Health Insurance. All
+            rights reserved.
+          </p>
+          <p className="text-white/35 text-xs mt-2">
+            5701 E Hillsborough Ave #1120, Tampa, FL 33610
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}

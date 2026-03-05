@@ -208,4 +208,13 @@
   html {
     scroll-behavior: smooth;
   }
+
+  h3.shimmer {
+    color: rgba(0,0,0,0.3);
+    background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 40%, #000 50%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.3) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 2s infinite linear;
+  }
 }

@@ -1,1 +1,9 @@
 node_modules
+.env
+.env.example
+.manus-logs/browserConsole.log
+.manus-logs/sessionReplay.log
+.manus-logs/browserConsole.log
+.manus-logs/sessionReplay.log
+.manus-logs/sessionReplay.log
+.manus-logs/browserConsole.log
