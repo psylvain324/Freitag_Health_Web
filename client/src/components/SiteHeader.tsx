@@ -61,13 +61,20 @@ export default function SiteHeader() {
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`relative fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out rounded-b-xl shadow-md ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-lg"
-          : "bg-background"
-      }`}
+      animate={{
+        y: 0,
+        opacity: 1,
+        backgroundColor: scrolled ? "hsl(var(--background) / 0.92)" : "hsl(var(--background) / 1)",
+        backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "blur(0px)",
+        boxShadow: scrolled ? "0 4px 20px -4px rgb(0 0 0 / 0.12), 0 0 0 1px rgb(0 0 0 / 0.03)" : "0 1px 3px rgb(0 0 0 / 0.04)",
+        borderBottomWidth: scrolled ? 1 : 0,
+        borderBottomColor: scrolled ? "hsl(var(--border) / 0.5)" : "hsl(var(--border) / 0)",
+      }}
+      transition={{
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
+      className="fixed top-0 left-0 right-0 z-50 rounded-b-xl border-b"
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
@@ -119,7 +126,7 @@ export default function SiteHeader() {
           >
             Start Application
             <ArrowRight className="w-4 h-4" />
-          </motion.a>
+          </motion.a> 
 
           <motion.button
             aria-label="Toggle menu"

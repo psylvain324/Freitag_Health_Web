@@ -5,14 +5,17 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import LeadForm from "./pages/LeadForm";
+import Apply from "./pages/Apply";
+import LandingRecruitment from "./pages/LandingRecruitment";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="" component={Home} />
-      <Route path="/apply" component={LeadForm} />
+      <Route path="/apply" component={Apply} />
+      <Route path="/careers" component={LandingRecruitment} />
+      <Route path="/my-story" component={LandingRecruitment} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Star, Users, TrendingUp, CheckCircle, ArrowRight, Target, Zap, Trophy, AlertCircle } from "lucide-react";
+import { Star, Users, TrendingUp, CheckCircle, ArrowRight, Target, Zap, Trophy, AlertCircle, Briefcase, DollarSign } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
       <SiteHeader />
 
       {/* Hero Section with Background Image */}
-      <section className="pt-32 pb-24 md:pt-44 md:pb-36 relative overflow-hidden">
+      <section className="pt-20 md:pt-28 pb-14 md:pb-20 relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
@@ -45,9 +45,9 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background pointer-events-none" />
         <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
             <div>
-              <div className="inline-block mb-5">
+              <div className="inline-block mb-3">
                 <div
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full
                     bg-accent/10 border border-accent/10 text-accent
@@ -58,10 +58,10 @@ export default function Home() {
                   <span className="text-sm font-semibold tracking-wide">Join a Winning Team</span>
                 </div>
               </div>
-              <h1 className="mb-6 leading-tight">
+              <h1 className="mb-4 leading-tight">
                 Build Your Insurance <span className="gradient-text">Career With Us</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-5 leading-relaxed">
                 Contact us to see if Health Insurance is the right career for you! Partner with a top-performing insurance leader and get the support, training, and compensation structure you deserve.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
             <div className="relative hidden md:block">
               <div className="relative overflow-hidden rounded-2xl shadow-2xl shadow-accent/10 ring-1 ring-black/5">
-                <img src="/images/pexels-fauxels-3184360.avif" alt="Sales Team" className="w-full h-auto object-cover" />
+                <img src="/images/Team_Home_1.avif" alt="Sales Team" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>
@@ -250,13 +250,95 @@ export default function Home() {
 
       <div className="py-5 md:py-6" aria-hidden><div className="section-separator" /></div>
 
-      {/* CTA Section */}
+      {/* CTA Section - Ready to Transform + Positions Hiring */}
       <section className="section-padding relative overflow-hidden bg-gradient-to-b from-background via-accent/[0.03] to-background">
-        <div className="container relative z-10 text-center">
-          <h2 className="mb-6">Ready to Transform Your Career?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            If you are interested in a new career, contact us today! Let's discuss how we can help you achieve your goals and build a thriving insurance business.
-          </p>
+        <div className="container relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="mb-6">Ready to Transform Your Career?</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              If you are interested in a new career, contact us today! Let's discuss how we can help you achieve your goals and build a thriving insurance business.
+            </p>
+          </div>
+
+          {/* Positions Hiring */}
+          <div className="mb-12">
+            <div className="flex items-center justify-center gap-2 mb-10">
+              <Briefcase className="w-5 h-5 text-accent" />
+              <h3 className="text-xl font-semibold">We're Hiring</h3>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Assistant Position */}
+              <Card className="card-hover border-border/80 bg-card/50 overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/images/Team_Home_1.avif"
+                    alt="Assistant role - team collaboration"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h4 className="text-xl font-semibold">Assistant</h4>
+                    <p className="text-sm text-muted-foreground">Support our team and grow your skills</p>
+                  </div>
+                </div>
+                <CardContent className="pt-6">
+                  <ul className="space-y-3 mb-6">
+                    {[
+                      "Cold calling and lead outreach",
+                      "Administrative support",
+                      "Launch and manage ad campaigns",
+                      "Assist with customer support",
+                      "Organize meetings and schedules for leaders",
+                    ].map((duty, i) => (
+                      <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                        {duty}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Sales Agent Position */}
+              <Card className="card-hover border-border/80 bg-card/50 overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/images/Steph_FG.avif"
+                    alt="Sales Agent - commission-based career"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="flex items-center gap-2 text-accent font-semibold text-sm mb-1">
+                      <DollarSign className="w-4 h-4" />
+                      Commission-Based
+                    </div>
+                    <h4 className="text-xl font-semibold">Sales Agent</h4>
+                    <p className="text-sm text-muted-foreground">Unlimited earning potential</p>
+                  </div>
+                </div>
+                <CardContent className="pt-6">
+                  <ul className="space-y-3 mb-6">
+                    {[
+                      "Commission pay — earn what you're worth",
+                      "Full training and certification support",
+                      "Field leads and make pitches",
+                      "Close deals and grow your income",
+                      "Provide ongoing customer support",
+                      "Manage your own book of clients",
+                      "Mentorship from top producers",
+                    ].map((item, i) => (
+                      <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/apply" className="inline-block">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full">
@@ -408,24 +490,24 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border bg-muted/30 py-14">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-x-14 md:gap-y-8 mb-12 text-center md:text-left">
-            <div>
-              <h4 className="font-semibold mb-4">Freitag Health Insurance</h4>
-              <p className="text-sm text-muted-foreground">Building successful careers in health insurance since 2019. Located in Tampa, Florida.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-x-8 md:gap-y-6 mb-10 text-center md:text-left">
+            <div className="md:pl-8">
+              <h4 className="font-semibold mb-3 text-sm">Freitag Health Insurance</h4>
+              <p className="text-xs text-muted-foreground">Building successful careers in health insurance since 2019. Located in Tampa, Florida.</p>
             </div>
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#about" className="text-muted-foreground hover:text-accent transition">About</a></li>
+            <div className="md:pl-8">
+              <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
+              <ul className="space-y-1.5 text-xs">
+                <li><a href="#about" className="text-muted-foreground hover:text-accent transition">My Story</a></li>
                 <li><a href="#sales" className="text-muted-foreground hover:text-accent transition">Our Services</a></li>
-                <li><a href="#benefits" className="text-muted-foreground hover:text-accent transition">Why Join</a></li>
+                <li><a href="#benefits" className="text-muted-foreground hover:text-accent transition">Join Us</a></li>
                 <li><a href="#testimonials" className="text-muted-foreground hover:text-accent transition">Success Stories</a></li>
                 <li><a href="/apply" className="text-muted-foreground hover:text-accent transition">Apply Now</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <h4 className="font-semibold mb-3 text-sm">Contact</h4>
+              <ul className="space-y-1.5 text-xs text-muted-foreground">
                 <li>Email: ssfreitaginsurance@gmail.com</li>
                 <li>Phone: 727-249-3807</li>
                 <li>Address: 5701 E Hillsborough Ave #1120</li>
@@ -433,8 +515,8 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Follow Us</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-semibold mb-3 text-sm">Follow Us</h4>
+              <ul className="space-y-1.5 text-xs">
                 <li>
                   <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
                     <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain" />
@@ -456,7 +538,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-border pt-10 text-center text-sm text-muted-foreground">
+          <div className="border-t border-border pt-8 text-center text-xs text-muted-foreground">
             <p>&copy; 2026 Freitag Health Insurance. All rights reserved.</p>
           </div>
         </div>

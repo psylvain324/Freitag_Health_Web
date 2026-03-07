@@ -7,3 +7,5 @@ node_modules
 .manus-logs/sessionReplay.log
 .manus-logs/sessionReplay.log
 .manus-logs/browserConsole.log
+.manus-logs/browserConsole.log
+*.log
