@@ -4,9 +4,9 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
-  { href: "/#about", label: "About" },
-  { href: "/#benefits", label: "Why Join" },
-  { href: "/#testimonials", label: "Success Stories" },
+  { href: "/#services", label: "Services" },
+  { href: "/#why-us", label: "Why Us" },
+  { href: "/#our-mission", label: "Our Mission" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -36,7 +36,7 @@ function NavLink({
   );
 }
 
-export default function SiteHeader() {
+export default function ServicesHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -101,7 +101,7 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        {/* Social icons (between Contact and button) + CTA + Mobile Menu */}
+        {/* Social icons + CTA + Mobile Menu */}
         <div className="flex items-center gap-2 md:gap-3">
           <div className="hidden md:flex items-center gap-1" aria-label="Social links">
             <motion.a href="#" aria-label="LinkedIn" className="p-1.5 rounded-lg text-foreground/70 hover:text-accent hover:bg-accent/10 transition-colors" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
@@ -126,7 +126,7 @@ export default function SiteHeader() {
               Start Application
               <ArrowRight className="w-4 h-4" />
             </motion.span>
-          </Link> 
+          </Link>
 
           <motion.button
             aria-label="Toggle menu"

@@ -257,7 +257,7 @@ export default function Apply() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background/96">
         <SiteHeader />
         <div className="flex items-center justify-center pt-32 pb-16 px-4">
           <Card className="max-w-md w-full border-border shadow-xl">
@@ -285,7 +285,7 @@ export default function Apply() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background/96">
       <SiteHeader />
       <div className="container max-w-2xl pt-32 pb-20">
         <div className="text-center mb-10">

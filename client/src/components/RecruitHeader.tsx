@@ -36,7 +36,7 @@ function NavLink({
   );
 }
 
-export default function SiteHeader() {
+export default function RecruitHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -126,7 +126,7 @@ export default function SiteHeader() {
               Start Application
               <ArrowRight className="w-4 h-4" />
             </motion.span>
-          </Link> 
+          </Link>
 
           <motion.button
             aria-label="Toggle menu"

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import SiteHeader from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,19 +32,11 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background/96 text-foreground">
       <SiteHeader />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <section className="pt-20 md:pt-28 pb-14 md:pb-20 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{
-            backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663397693691/QAp5dBwcR69Bs4yRELPLtH/tampa_skyline_hero_f0df03fc.webp')",
-            opacity: 0.2
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background pointer-events-none" />
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
             <div>
@@ -65,11 +58,11 @@ export default function Home() {
                 Contact us to see if Health Insurance is the right career for you! Partner with a top-performing insurance leader and get the support, training, and compensation structure you deserve.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="/apply" className="inline-block">
+                <Link href="/apply" className="inline-block">
                   <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full">
                     Start Your Application <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                </a>
+                </Link>
                 <a href="#benefits" className="inline-block">
                   <Button size="lg" variant="outline" className="w-full">
                     Learn More
@@ -362,44 +355,7 @@ export default function Home() {
             </p>
           </div>
           <div className="space-y-16">
-            <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start w-full max-w-7xl mx-auto px-4 md:px-8">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 aspect-video min-h-[240px]">
-                <iframe
-                  src="https://www.google.com/maps?q=5701+E+Hillsborough+Ave+%231120,+Tampa,+FL+33610&output=embed"
-                  title="Office Location - 5701 E Hillsborough Ave #1120, Tampa, FL 33610"
-                  className="w-full h-full border-0 rounded-2xl"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Address</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    5701 E Hillsborough Ave #1120<br />
-                    Tampa, FL 33610
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Contact Information</h3>
-                  <p className="text-muted-foreground mb-2">
-                    <strong>Phone:</strong> <a href="tel:727-249-3807" className="hover:text-accent transition">727-249-3807</a>
-                  </p>
-                  <p className="text-muted-foreground">
-                    <strong>Email:</strong> <a href="mailto:ssfreitaginsurance@gmail.com" className="hover:text-accent transition">ssfreitaginsurance@gmail.com</a>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Hours</h3>
-                  <p className="text-muted-foreground">
-                    Monday - Friday: 9:00 AM - 5:00 PM<br />
-                    Saturday - Sunday: Closed
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center w-full max-w-5xl mx-auto px-4 md:px-8">
+            <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-4 md:px-8">
               <h3 className="text-xl font-semibold mb-6">Schedule A Call with me today!</h3>
               {contactSubmitted ? (
                 <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 text-center">
@@ -483,6 +439,43 @@ export default function Home() {
                 </form>
               )}
             </div>
+            <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-start w-full max-w-7xl mx-auto px-4 md:px-8">
+              <div className="md:col-span-2 relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 aspect-video min-h-[240px]">
+                <iframe
+                  src="https://www.google.com/maps?q=5701+E+Hillsborough+Ave+%231120,+Tampa,+FL+33610&output=embed"
+                  title="Office Location - 5701 E Hillsborough Ave #1120, Tampa, FL 33610"
+                  className="w-full h-full border-0 rounded-2xl"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="md:col-span-3 space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Address</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    5701 E Hillsborough Ave #1120<br />
+                    Tampa, FL 33610
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Contact Information</h3>
+                  <p className="text-muted-foreground mb-2">
+                    <strong>Phone:</strong> <a href="tel:727-249-3807" className="hover:text-accent transition">727-249-3807</a>
+                  </p>
+                  <p className="text-muted-foreground">
+                    <strong>Email:</strong> <a href="mailto:ssfreitaginsurance@gmail.com" className="hover:text-accent transition">ssfreitaginsurance@gmail.com</a>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Hours</h3>
+                  <p className="text-muted-foreground">
+                    Monday - Friday: 9:00 AM - 5:00 PM<br />
+                    Saturday - Sunday: Closed
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -490,22 +483,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border bg-muted/30 py-14">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-x-8 md:gap-y-6 mb-10 text-center md:text-left">
-            <div className="md:pl-8">
-              <h4 className="font-semibold mb-3 text-sm">Freitag Health Insurance</h4>
-              <p className="text-xs text-muted-foreground">Building successful careers in health insurance since 2019. Located in Tampa, Florida.</p>
-            </div>
-            <div className="md:pl-8">
-              <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
-              <ul className="space-y-1.5 text-xs">
-                <li><a href="#about" className="text-muted-foreground hover:text-accent transition">My Story</a></li>
-                <li><a href="#sales" className="text-muted-foreground hover:text-accent transition">Our Services</a></li>
-                <li><a href="#benefits" className="text-muted-foreground hover:text-accent transition">Join Us</a></li>
-                <li><a href="#testimonials" className="text-muted-foreground hover:text-accent transition">Success Stories</a></li>
-                <li><a href="/apply" className="text-muted-foreground hover:text-accent transition">Apply Now</a></li>
-              </ul>
-            </div>
-            <div>
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-8 mb-10 text-center md:px-[15%]">
+            <div className="md:text-left md:w-1/3 md:min-w-0">
               <h4 className="font-semibold mb-3 text-sm">Contact</h4>
               <ul className="space-y-1.5 text-xs text-muted-foreground">
                 <li>Email: ssfreitaginsurance@gmail.com</li>
@@ -514,9 +493,19 @@ export default function Home() {
                 <li>Tampa, FL 33610</li>
               </ul>
             </div>
-            <div>
-              <h4 className="font-semibold mb-3 text-sm">Follow Us</h4>
+            <div className="md:w-1/3 md:min-w-0">
+              <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
               <ul className="space-y-1.5 text-xs">
+                <li><a href="#about" className="text-muted-foreground hover:text-accent transition">My Story</a></li>
+                <li><a href="#sales" className="text-muted-foreground hover:text-accent transition">Our Services</a></li>
+                <li><a href="#benefits" className="text-muted-foreground hover:text-accent transition">Join Us</a></li>
+                <li><a href="#testimonials" className="text-muted-foreground hover:text-accent transition">Success Stories</a></li>
+                <li><Link href="/apply" className="text-muted-foreground hover:text-accent transition">Apply Now</Link></li>
+              </ul>
+            </div>
+            <div className="md:text-right md:w-1/3 md:min-w-0">
+              <h4 className="font-semibold mb-3 text-sm">Follow Us</h4>
+              <ul className="space-y-1.5 text-xs inline-block">
                 <li>
                   <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
                     <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain" />

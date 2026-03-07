@@ -27,7 +27,7 @@ const checkpoints = [
 
 export default function LandingRecruitment() {
   return (
-    <div className="min-h-screen bg-warm-white">
+    <div className="min-h-screen bg-warm-white/96">
       {/* Header */}
       <header className="bg-navy py-4">
         <div className="container flex items-center justify-between">
