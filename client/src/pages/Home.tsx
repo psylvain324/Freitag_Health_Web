@@ -257,14 +257,14 @@ export default function Home() {
           <div className="mb-12">
             <div className="flex items-center justify-center gap-2 mb-10">
               <Briefcase className="w-5 h-5 text-accent" />
-              <h3 className="text-xl font-semibold">We're Hiring</h3>
+              <h3 className="text-xl font-semibold">We're Hiring These Positions</h3>
             </div>
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {/* Assistant Position */}
               <Card className="card-hover border-border/80 bg-card/50 overflow-hidden">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
-                    src="/images/Team_Home_1.avif"
+                    src="/images/Sales_Agent_1.avif"
                     alt="Assistant role - team collaboration"
                     className="w-full h-full object-cover"
                   />
@@ -277,6 +277,7 @@ export default function Home() {
                 <CardContent className="pt-6">
                   <ul className="space-y-3 mb-6">
                     {[
+                      "Learn from the best insurance leaders in the country",
                       "Cold calling and lead outreach",
                       "Administrative support",
                       "Launch and manage ad campaigns",
@@ -296,16 +297,16 @@ export default function Home() {
               <Card className="card-hover border-border/80 bg-card/50 overflow-hidden">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
-                    src="/images/Steph_FG.avif"
+                    src="/images/Sales_Team_1.png"
                     alt="Sales Agent - commission-based career"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="flex items-center gap-2 text-accent font-semibold text-sm mb-1">
+                    {/* <div className="flex items-center gap-2 text-accent font-semibold text-sm mb-1">
                       <DollarSign className="w-4 h-4" />
                       Commission-Based
-                    </div>
+                    </div> */}
                     <h4 className="text-xl font-semibold">Sales Agent</h4>
                     <p className="text-sm text-muted-foreground">Unlimited earning potential</p>
                   </div>
@@ -351,11 +352,12 @@ export default function Home() {
             <div className="divider-accent mx-auto mb-4" />
             <h2>Get In Touch Today!</h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Send us a message to schedule a health screening or career inquiry
+              Send us a message to schedule a Call with me for Insurance or Career Opportunities
             </p>
           </div>
-          <div className="space-y-16">
-            <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-4 md:px-8">
+          <div className="space-y-16 w-full max-w-7xl mx-auto px-4 md:px-8">
+            {/* Schedule A Call form - above, wider */}
+            <div className="w-full max-w-4xl mx-auto">
               <h3 className="text-xl font-semibold mb-6">Schedule A Call with me today!</h3>
               {contactSubmitted ? (
                 <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 text-center">
@@ -439,42 +441,18 @@ export default function Home() {
                 </form>
               )}
             </div>
-            <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-start w-full max-w-7xl mx-auto px-4 md:px-8">
-              <div className="md:col-span-2 relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 aspect-video min-h-[240px]">
-                <iframe
-                  src="https://www.google.com/maps?q=5701+E+Hillsborough+Ave+%231120,+Tampa,+FL+33610&output=embed"
-                  title="Office Location - 5701 E Hillsborough Ave #1120, Tampa, FL 33610"
-                  className="w-full h-full border-0 rounded-2xl"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <div className="md:col-span-3 space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Address</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    5701 E Hillsborough Ave #1120<br />
-                    Tampa, FL 33610
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Contact Information</h3>
-                  <p className="text-muted-foreground mb-2">
-                    <strong>Phone:</strong> <a href="tel:727-249-3807" className="hover:text-accent transition">727-249-3807</a>
-                  </p>
-                  <p className="text-muted-foreground">
-                    <strong>Email:</strong> <a href="mailto:ssfreitaginsurance@gmail.com" className="hover:text-accent transition">ssfreitaginsurance@gmail.com</a>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Hours</h3>
-                  <p className="text-muted-foreground">
-                    Monday - Friday: 9:00 AM - 5:00 PM<br />
-                    Saturday - Sunday: Closed
-                  </p>
-                </div>
-              </div>
+            <div className="space-y-4 w-full max-w-md">
+              <p className="text-muted-foreground leading-relaxed">
+                <strong className="text-foreground font-semibold">Address:</strong> 5701 E Hillsborough Ave #1120, Tampa, FL 33610
+              </p>
+              <p className="text-muted-foreground">
+                <strong className="text-foreground font-semibold">Phone:</strong>{" "}
+                <a href="tel:727-249-3807" className="hover:text-accent transition">727-249-3807</a>
+              </p>
+              <p className="text-muted-foreground">
+                <strong className="text-foreground font-semibold">Email:</strong>{" "}
+                <a href="mailto:ssfreitaginsurance@gmail.com" className="hover:text-accent transition">ssfreitaginsurance@gmail.com</a>
+              </p>
             </div>
           </div>
         </div>
@@ -483,8 +461,20 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border bg-muted/30 py-14">
         <div className="container max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-8 mb-10 text-center md:px-[15%]">
-            <div className="md:text-left md:w-1/3 md:min-w-0">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+            <div className="col-span-2 md:col-span-1 min-w-0">
+              <div className="relative overflow-hidden rounded-xl shadow-lg ring-1 ring-black/5 w-full aspect-video">
+                <iframe
+                  src="https://www.google.com/maps?q=5701+E+Hillsborough+Ave+%231120,+Tampa,+FL+33610&output=embed"
+                  title="Office Location - 5701 E Hillsborough Ave #1120, Tampa, FL 33610"
+                  className="absolute inset-0 w-full h-full border-0 rounded-xl"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+            <div className="min-w-0 md:pl-28">
               <h4 className="font-semibold mb-3 text-sm">Contact</h4>
               <ul className="space-y-1.5 text-xs text-muted-foreground">
                 <li>Email: ssfreitaginsurance@gmail.com</li>
@@ -493,7 +483,7 @@ export default function Home() {
                 <li>Tampa, FL 33610</li>
               </ul>
             </div>
-            <div className="md:w-1/3 md:min-w-0">
+            <div className="min-w-0 md:pl-28">
               <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
               <ul className="space-y-1.5 text-xs">
                 <li><a href="#about" className="text-muted-foreground hover:text-accent transition">My Story</a></li>
@@ -503,25 +493,25 @@ export default function Home() {
                 <li><Link href="/apply" className="text-muted-foreground hover:text-accent transition">Apply Now</Link></li>
               </ul>
             </div>
-            <div className="md:text-right md:w-1/3 md:min-w-0">
+            <div className="min-w-0 md:text-right md:pr-16">
               <h4 className="font-semibold mb-3 text-sm">Follow Us</h4>
               <ul className="space-y-1.5 text-xs inline-block">
                 <li>
                   <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
-                    <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain" />
                     LinkedIn
+                    <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain" />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
-                    <img src="/images/Facebook_Icon.png" alt="" className="h-5 w-5 object-contain" />
                     Facebook
+                    <img src="/images/Facebook_Icon.png" alt="" className="h-5 w-5 object-contain" />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition">
-                    <img src="/images/Instagram_Logo.jpeg" alt="" className="h-5 w-5 object-contain rounded-sm" />
                     Instagram
+                    <img src="/images/Instagram_Logo.jpeg" alt="" className="h-5 w-5 object-contain rounded-sm" />
                   </a>
                 </li>
               </ul>

@@ -9,3 +9,5 @@ node_modules
 .manus-logs/browserConsole.log
 .manus-logs/browserConsole.log
 *.log
+.manus-logs/browserConsole.log
+.manus-logs/sessionReplay.log

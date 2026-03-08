@@ -641,3 +641,68 @@
 [2026-03-07T18:54:18.729Z] {"timestamp":1772909657680,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
 [2026-03-07T18:54:20.731Z] {"timestamp":1772909659127,"level":"DEBUG","args":["[vite]","hot updated: /src/components/SiteHeader.tsx"],"stack":null}
 [2026-03-07T18:54:20.731Z] {"timestamp":1772909659127,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T13:46:40.254Z] {"timestamp":1772977596462,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-03-08T13:46:40.254Z] {"timestamp":1772977596472,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-03-08T13:46:40.254Z] {"timestamp":1772977597955,"level":"LOG","args":["[vite] server connection lost. Polling for restart..."],"stack":null}
+[2026-03-08T13:46:44.603Z] {"timestamp":1772977601735,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-03-08T13:46:44.603Z] {"timestamp":1772977601742,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-03-08T14:55:13.513Z] {"timestamp":1772981713468,"level":"LOG","args":["[vite] server connection lost. Polling for restart..."],"stack":null}
+[2026-03-08T14:55:15.650Z] {"timestamp":1772981713640,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-03-08T14:55:15.650Z] {"timestamp":1772981713644,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-03-08T15:23:44.209Z] {"timestamp":1772983423535,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:23:44.209Z] {"timestamp":1772983423536,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:23:47.382Z] {"timestamp":1772983425374,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-03-08T15:23:47.382Z] {"timestamp":1772983425380,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-03-08T15:24:27.380Z] {"timestamp":1772983466802,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:24:27.380Z] {"timestamp":1772983466802,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:31:11.429Z] {"timestamp":1772983871188,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:31:11.429Z] {"timestamp":1772983871188,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:33:31.379Z] {"timestamp":1772984011080,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:33:31.379Z] {"timestamp":1772984011080,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:34:09.380Z] {"timestamp":1772984048833,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:34:09.380Z] {"timestamp":1772984048833,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:34:11.379Z] {"timestamp":1772984050189,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:34:11.379Z] {"timestamp":1772984050189,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:36:49.378Z] {"timestamp":1772984209246,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:36:49.378Z] {"timestamp":1772984209246,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:41:23.380Z] {"timestamp":1772984482989,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:41:23.380Z] {"timestamp":1772984482989,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:41:27.381Z] {"timestamp":1772984485569,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:41:27.381Z] {"timestamp":1772984485569,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:41:33.379Z] {"timestamp":1772984492512,"level":"ERROR","args":["[vite]","Failed to reload /src/pages/Home.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)"],"stack":"Error\n    at console.error (http://localhost:3000/__manus__/debug-collector.js:391:37)\n    at Object.error (http://localhost:3000/@vite/client:809:26)\n    at HMRClient.warnFailedUpdate (http://localhost:3000/@vite/client:181:15)\n    at HMRClient.fetchUpdate (http://localhost:3000/@vite/client:212:10)\n    at async Promise.all (index 0)\n    at async HMRClient.queueUpdate (http://localhost:3000/@vite/client:196:5)\n    at async Promise.all (index 0)\n    at async handleMessage (http://localhost:3000/@vite/client:838:4)"}
+[2026-03-08T15:41:33.379Z] {"timestamp":1772984492524,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:41:33.379Z] {"timestamp":1772984492524,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:41:39.379Z] {"timestamp":1772984498695,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:41:39.379Z] {"timestamp":1772984498695,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:41:49.382Z] {"timestamp":1772984508123,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:41:49.382Z] {"timestamp":1772984508123,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:44:07.381Z] {"timestamp":1772984645865,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:44:07.381Z] {"timestamp":1772984645865,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:44:58.084Z] {"timestamp":1772984697226,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:44:58.084Z] {"timestamp":1772984697226,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:45:00.058Z] {"timestamp":1772984698086,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:45:00.058Z] {"timestamp":1772984698086,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:45:00.058Z] {"timestamp":1772984699812,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:45:00.058Z] {"timestamp":1772984699812,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:45:02.092Z] {"timestamp":1772984701077,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:45:02.092Z] {"timestamp":1772984701077,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T15:45:04.059Z] {"timestamp":1772984702311,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T15:45:04.059Z] {"timestamp":1772984702311,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:03:13.385Z] {"timestamp":1772985791849,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:03:13.385Z] {"timestamp":1772985791849,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:04:30.112Z] {"timestamp":1772985868789,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:04:30.112Z] {"timestamp":1772985868789,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:04:30.112Z] {"timestamp":1772985869288,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:04:30.112Z] {"timestamp":1772985869288,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:04:34.085Z] {"timestamp":1772985872405,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:04:34.085Z] {"timestamp":1772985872406,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:04:36.061Z] {"timestamp":1772985874122,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:04:36.061Z] {"timestamp":1772985874122,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:12:21.384Z] {"timestamp":1772986341000,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:12:21.384Z] {"timestamp":1772986341000,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:26:47.387Z] {"timestamp":1772987205396,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:26:47.387Z] {"timestamp":1772987205396,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:26:47.387Z] {"timestamp":1772987205982,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:26:47.387Z] {"timestamp":1772987205982,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-03-08T16:27:03.397Z] {"timestamp":1772987222258,"level":"DEBUG","args":["[vite]","hot updated: /src/pages/Home.tsx"],"stack":null}
+[2026-03-08T16:27:03.397Z] {"timestamp":1772987222258,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
