@@ -441,19 +441,6 @@ export default function Home() {
                 </form>
               )}
             </div>
-            <div className="space-y-4 w-full max-w-md">
-              <p className="text-muted-foreground leading-relaxed">
-                <strong className="text-foreground font-semibold">Address:</strong> 5701 E Hillsborough Ave #1120, Tampa, FL 33610
-              </p>
-              <p className="text-muted-foreground">
-                <strong className="text-foreground font-semibold">Phone:</strong>{" "}
-                <a href="tel:727-249-3807" className="hover:text-accent transition">727-249-3807</a>
-              </p>
-              <p className="text-muted-foreground">
-                <strong className="text-foreground font-semibold">Email:</strong>{" "}
-                <a href="mailto:ssfreitaginsurance@gmail.com" className="hover:text-accent transition">ssfreitaginsurance@gmail.com</a>
-              </p>
-            </div>
           </div>
         </div>
       </section>
