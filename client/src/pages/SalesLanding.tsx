@@ -170,8 +170,8 @@ export default function HealthInsuranceLanding() {
                 </span>
               </div>
               <h1 className="font-serif text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] leading-[1.08] text-[oklch(0.22_0.03_65)] mb-6">
-                Smarter health insurance starts with{" "}
-                <em className="text-[oklch(0.30_0.06_160)] not-italic">medical underwriting</em>
+                Smarter Health Insurance Starts With{" "}
+                <em className="text-[oklch(0.30_0.06_160)] not-italic">Medical Underwriting</em>
               </h1>
               <p className="font-sans text-lg sm:text-xl text-[oklch(0.45_0.02_65)] leading-relaxed mb-8 max-w-lg">
                 Healthy individuals and families deserve rates that reflect their well-being. Compare medically underwritten plans from every top carrier — all in one place.
@@ -277,7 +277,7 @@ export default function HealthInsuranceLanding() {
       {/* ═══════════════════════════════════════════════════════
           WHAT IS MEDICAL UNDERWRITING
       ═══════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
+      <section className="py-20 sm:py-28 section-accented relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -413,7 +413,7 @@ export default function HealthInsuranceLanding() {
       {/* ═══════════════════════════════════════════════════════
           CARRIER LOGOS
       ═══════════════════════════════════════════════════════ */}
-      <section id="carriers" className="py-20 sm:py-24">
+      <section id="carriers" className="py-20 sm:py-24 section-accented relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
@@ -512,7 +512,7 @@ export default function HealthInsuranceLanding() {
       {/* ═══════════════════════════════════════════════════════
           TESTIMONIALS
       ═══════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
+      <section className="py-20 sm:py-28 section-accented">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">

@@ -233,9 +233,242 @@
     color: transparent;
   }
 
-  /* Subtle section backgrounds for depth */
+  /* Section backgrounds for contrast - alternating light/darker (healthsave-style) */
   .section-alt {
-    @apply bg-muted/30;
+    @apply bg-muted/60;
+  }
+
+  /* Green fade top-to-bottom: gentle fade in and out (all pages) */
+  .green-fade-vertical {
+    background: linear-gradient(
+      to bottom,
+      oklch(0.995 0.008 165 / 0.03) 0%,
+      oklch(0.98 0.02 165 / 0.12) 50%,
+      oklch(0.995 0.008 165 / 0.03) 100%
+    );
+  }
+
+  /* Gentle green fade: top-to-bottom fade in/out (all pages) */
+  .green-fade-vertical {
+    background: linear-gradient(
+      to bottom,
+      oklch(0.995 0.008 165 / 0.02) 0%, oklch(0.98 0.02 165 / 0.06) 30%, oklch(0.97 0.025 165 / 0.08) 50%, oklch(0.98 0.02 165 / 0.06) 70%, oklch(0.995 0.008 165 / 0.02) 100%
+    );
+  }
+
+  /* Trusted Carriers-style: gradient wash + teal accent borders (alternate sections) - gentle fade */
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      to bottom,
+      oklch(0.995 0.008 165 / 0.02) 0%, oklch(0.98 0.02 165 / 0.06) 30%, oklch(0.97 0.025 165 / 0.08) 50%, oklch(0.98 0.02 165 / 0.06) 70%, oklch(0.995 0.008 165 / 0.02) 100%
+    );
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, oklch(0.35 0.12 165 / 0.5), transparent);
+    pointer-events: none;
+  }
+  .section-accented::before { left: 0; }
+  .section-accented::after {
+    right: 0;
+    left: auto;
+  }
+
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      to bottom,
+      oklch(0.95 0.03 165 / 0.4),
+      oklch(0.97 0.02 165 / 0.2),
+      oklch(0.965 0.02 165)
+    );
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      oklch(0.35 0.12 165 / 0.5),
+      transparent
+    );
+    pointer-events: none;
+  }
+  .section-accented::before {
+    left: 0;
+  }
+  .section-accented::after {
+    right: 0;
+    left: auto;
+  }
+
+  /* Trusted Carriers–style section: gradient wash + teal accent borders (alternate sections) */
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(to bottom, oklch(0.995 0.008 165 / 0.02) 0%, oklch(0.98 0.02 165 / 0.06) 50%, oklch(0.995 0.008 165 / 0.02) 100%);
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, oklch(0.35 0.12 165 / 0.5), transparent);
+    pointer-events: none;
+  }
+  .section-accented::before { left: 0; }
+  .section-accented::after { right: 0; left: auto; }
+
+  /* Trusted Carriers-style treatment: gradient wash + teal accent borders (alternate with plain sections) */
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      to bottom,
+      oklch(0.95 0.03 165 / 0.4),
+      oklch(0.97 0.02 165 / 0.2),
+      oklch(0.965 0.02 165)
+    );
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, oklch(0.35 0.12 165 / 0.5), transparent);
+    pointer-events: none;
+  }
+  .section-accented::before {
+    left: 0;
+  }
+  .section-accented::after {
+    right: 0;
+    left: auto;
+  }
+
+  /* Trusted Carriers–style treatment: gradient wash + teal accent borders (alternate sections) */
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      to bottom,
+      oklch(0.95 0.03 165 / 0.4),
+      oklch(0.97 0.02 165 / 0.2),
+      oklch(0.96 0.02 165 / 0.5)
+    );
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      oklch(0.35 0.12 165 / 0.5),
+      transparent
+    );
+    pointer-events: none;
+  }
+  .section-accented::before {
+    left: 0;
+  }
+  .section-accented::after {
+    right: 0;
+    left: auto;
+  }
+
+  /* Trusted Carriers-style section: gradient wash + teal accent borders (alternate sections) */
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(to bottom, oklch(0.995 0.008 165 / 0.02) 0%, oklch(0.98 0.02 165 / 0.06) 50%, oklch(0.995 0.008 165 / 0.02) 100%);
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, oklch(0.35 0.12 165 / 0.5), transparent);
+    pointer-events: none;
+  }
+  .section-accented::before { left: 0; }
+  .section-accented::after { right: 0; left: auto; }
+
+  /* Trusted Carriers-style section: gradient wash + teal accent borders (alternate sections) */
+  .section-accented {
+    @apply relative overflow-hidden;
+    background: linear-gradient(to bottom, oklch(0.995 0.008 165 / 0.02) 0%, oklch(0.98 0.02 165 / 0.06) 50%, oklch(0.995 0.008 165 / 0.02) 100%);
+  }
+  .section-accented::before,
+  .section-accented::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      oklch(0.35 0.12 165 / 0.5),
+      transparent
+    );
+    pointer-events: none;
+  }
+  .section-accented::before {
+    left: 0;
+  }
+  .section-accented::after {
+    right: 0;
+    left: auto;
+  }
+
+  /* Gentle green fade top-to-bottom (all section-accented) */
+  .section-accented {
+    background: linear-gradient(
+      to bottom,
+      oklch(0.995 0.008 165 / 0.02) 0%, oklch(0.98 0.02 165 / 0.06) 50%, oklch(0.995 0.008 165 / 0.02) 100%
+    );
+  }
+
+  /* Card areas: white with gentle green fade (Home, cards across site) */
+  .green-fade-soft {
+    background: linear-gradient(
+      to bottom,
+      white 0%,
+      oklch(0.99 0.012 165 / 0.03) 50%,
+      white 100%
+    );
+  }
+  .green-fade-soft-hover:hover {
+    background: linear-gradient(
+      to bottom,
+      white 0%,
+      oklch(0.99 0.012 165 / 0.06) 50%,
+      white 100%
+    );
+  }
+
+  /* Green fade vertical - gentle top-to-bottom fade for card areas (Home, etc.) */
+  .green-fade-vertical {
+    background: linear-gradient(to bottom, white 0%, oklch(0.99 0.012 165 / 0.03) 50%, white 100%);
+  }
+  .green-fade-vertical-hover:hover {
+    background: linear-gradient(to bottom, white 0%, oklch(0.99 0.012 165 / 0.12) 50%, white 100%);
   }
 
   /* Subtle horizontal section separators - more pronounced with shadow */
@@ -281,6 +514,23 @@
   }
 
   /* Infinite marquee for partner/logo carousel */
+  /* Hero headline - subtle gradient shimmer */
+  .hero-headline {
+    background: linear-gradient(110deg, #ffffff 0%, #fefce8 25%, #fef3c7 50%, #fef9e7 75%, #ffffff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hero-shimmer 8s ease-in-out infinite;
+  }
+  @keyframes hero-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-headline { animation: none; }
+  }
+
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }

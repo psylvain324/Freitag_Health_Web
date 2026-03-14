@@ -10,7 +10,7 @@ export default function Home() {
     <div className="min-h-screen bg-warm-white">
       {/* Header */}
       <header className="bg-navy py-3 shadow-[0_2px_10px_rgba(0,0,0,0.15),0_1px_4px_rgba(0,0,0,0.1)]">
-        <div className="container flex items-center justify-between">
+        <div className="container flex items-center justify-center">
           <Link href="/">
             <div className="flex items-center gap-2.5 shrink-0 h-9 md:h-10">
               <img
@@ -23,17 +23,6 @@ export default function Home() {
               </span>
             </div>
           </Link>
-          <div className="flex items-center gap-1" aria-label="Social links">
-            <a href="#" aria-label="LinkedIn" className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-              <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain brightness-0 invert" />
-            </a>
-            <a href="#" aria-label="Instagram" className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-              <img src="/images/Instagram_Logo.jpeg" alt="" className="h-5 w-5 object-contain rounded-sm brightness-0 invert" />
-            </a>
-            <a href="#" aria-label="Facebook" className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-              <img src="/images/Facebook_Icon.png" alt="" className="h-5 w-5 object-contain brightness-0 invert" />
-            </a>
-          </div>
         </div>
       </header>
 

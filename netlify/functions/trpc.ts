@@ -45,6 +45,37 @@ async function sendContactEmail(data: {
   }
 }
 
+async function sendInsureRequestEmail(data: Record<string, unknown>): Promise<boolean> {
+  if (!resend) {
+    console.warn("[InsureRequest] Resend not configured - set RESEND_API_KEY");
+    return false;
+  }
+  const entries = Object.entries(data).filter(([, v]) => v != null && v !== "");
+  const rows = entries.map(([k, v]) => `<tr><td style="padding:6px 12px;border-bottom:1px solid #eee"><strong>${String(k).replace(/</g, "&lt;")}</strong></td><td style="padding:6px 12px;border-bottom:1px solid #eee">${String(v).replace(/</g, "&lt;").replace(/\n/g, "<br>")}</td></tr>`).join("");
+  const html = `
+    <h2>New Insurance Quote Request</h2>
+    <p><strong>From:</strong> ${(data["First Name"] as string) ?? ""} ${(data["Last Name"] as string) ?? ""} &lt;${(data["Email"] as string) ?? ""}&gt;</p>
+    <table style="border-collapse:collapse;margin-top:16px;width:100%">${rows}</table>
+  `;
+  try {
+    const { error } = await resend.emails.send({
+      from: "Freitag Health Insurance Request <onboarding@resend.dev>",
+      to: CONTACT_EMAILS,
+      replyTo: (data["Email"] as string) || undefined,
+      subject: `Insurance Quote Request: ${data["First Name"]} ${data["Last Name"]}`,
+      html,
+    });
+    if (error) {
+      console.error("[InsureRequest] Resend error:", error);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[InsureRequest] Send failed:", err);
+    return false;
+  }
+}
+
 const t = initTRPC.create({
   transformer: superjson,
 });
@@ -72,6 +103,56 @@ const appRouter = router({
           });
         }
         return { success: true, message: "Thanks for submitting!" };
+      }),
+  }),
+  insureRequest: router({
+    submit: publicProcedure
+      .input(
+        z.object({
+          firstName: z.string().min(1, "First name is required"),
+          lastName: z.string().min(1, "Last name is required"),
+          email: z.string().email("Valid email is required"),
+          phone: z.string().min(1, "Phone is required"),
+          state: z.string().optional(),
+          numberOfPeople: z.string().optional(),
+          tobaccoUse: z.string().optional(),
+          preExistingConditions: z.string().optional(),
+          preExistingDetails: z.string().optional(),
+          currentInsurance: z.string().optional(),
+          currentCarrier: z.string().optional(),
+          currentPlanEndDate: z.string().optional(),
+          desiredStartDate: z.string().optional(),
+          additionalNotes: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const labels: Record<string, string> = {
+          firstName: "First Name",
+          lastName: "Last Name",
+          email: "Email",
+          phone: "Phone",
+          state: "State",
+          numberOfPeople: "Number of People to Insure",
+          tobaccoUse: "Tobacco Use (last 12 months)",
+          preExistingConditions: "Pre-existing Conditions",
+          preExistingDetails: "Pre-existing Details",
+          currentInsurance: "Has Current Insurance",
+          currentCarrier: "Current Carrier",
+          currentPlanEndDate: "Current Plan End Date",
+          desiredStartDate: "Desired Coverage Start Date",
+          additionalNotes: "Additional Notes",
+        };
+        const data = Object.fromEntries(
+          Object.entries(input).map(([k, v]) => [labels[k] ?? k, v])
+        );
+        const sent = await sendInsureRequestEmail(data);
+        if (!sent) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to submit request. Please try again or call us at 727-249-3807.",
+          });
+        }
+        return { success: true, message: "Thanks! We'll review your information and be in touch soon." };
       }),
   }),
 });

@@ -15,13 +15,13 @@ const CARRIERS = [
 function LogoItem({ name, src }: { name: string; src: string }) {
   return (
     <div
-      className="flex shrink-0 items-center justify-center w-[72px] h-7 md:w-[80px] md:h-8 bg-[var(--background)]"
+      className="flex shrink-0 items-center justify-center w-24 h-9 md:w-32 md:h-11 lg:w-40 lg:h-12 bg-transparent"
       title={name}
     >
       <img
         src={src}
         alt={name}
-        className="max-h-full max-w-full w-auto h-auto object-contain object-center opacity-60 hover:opacity-80 transition-opacity duration-300 bg-transparent"
+        className="max-h-full max-w-full w-auto h-auto object-contain object-center opacity-80 hover:opacity-100 transition-opacity duration-300 bg-transparent"
         loading="lazy"
         style={{ backgroundColor: "transparent" }}
       />
@@ -37,13 +37,13 @@ export default function PartnerLogosCarousel() {
 
   return (
     <section
-      className="relative overflow-hidden border-y border-border/30 py-1 md:py-1.5 bg-[var(--background)]"
+      className="relative overflow-hidden border-y border-border/30 py-6 md:py-8 bg-[var(--background)]"
       aria-label="Carriers we work with"
     >
       <div className="absolute inset-y-0 left-0 w-12 md:w-16 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-12 md:w-16 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
 
-      <div className="marquee-content flex items-center">
+      <div className="marquee-content flex items-center gap-6 md:gap-8">
         {duplicatedCarriers.map((carrier, i) => (
           <LogoItem key={`${carrier.name}-${i}`} {...carrier} />
         ))}

@@ -1,10 +1,8 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, MapPin, Phone, Mail } from "lucide-react";
+import { CheckCircle, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const LOGO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663397693691/joVpfAwXfksykrvCYRdrqC/freitag_logo_hires_1022d117.png";
 const TAMPA_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663397693691/QAp5dBwcR69Bs4yRELPLtH/tampa_skyline_hero_f0df03fc.webp";
 const MAIN_CTA_URL = "/apply";
@@ -29,21 +27,31 @@ export default function LandingRecruitment() {
   return (
     <div className="min-h-screen bg-warm-white/96">
       {/* Header */}
-      <header className="bg-navy py-4">
+      <header className="bg-navy py-3 shadow-[0_2px_10px_rgba(0,0,0,0.15),0_1px_4px_rgba(0,0,0,0.1)]">
         <div className="container flex items-center justify-between">
           <Link href="/">
-            <img
-              src={LOGO_URL}
-              alt="Freitag Health Insurance"
-              className="h-12 object-contain brightness-0 invert"
-            />
+            <div className="flex items-center gap-2.5 shrink-0 h-9 md:h-10">
+              <img
+                src="/images/F_Insurance.png"
+                alt=""
+                className="h-full w-auto max-h-full object-contain object-left brightness-0 invert opacity-95"
+              />
+              <span style={{ marginLeft: "-0.95em" }} className="text-lg md:text-xl whitespace-nowrap text-white font-semibold">
+                reitag Health Insurance
+              </span>
+            </div>
           </Link>
-          <a href={MAIN_CTA_URL}>
-            <Button className="bg-gold hover:bg-gold-dark text-navy font-semibold rounded-full">
-              Join Our Team
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-          </a>
+          <div className="flex items-center gap-1" aria-label="Social links">
+            <a href="#" aria-label="LinkedIn" className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors">
+              <img src="/images/LinkedIn_Logo.webp" alt="" className="h-5 w-5 object-contain brightness-0 invert" />
+            </a>
+            <a href="#" aria-label="Instagram" className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors">
+              <img src="/images/Instagram_Logo.jpeg" alt="" className="h-5 w-5 object-contain rounded-sm brightness-0 invert" />
+            </a>
+            <a href="#" aria-label="Facebook" className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors">
+              <img src="/images/Facebook_Icon.png" alt="" className="h-5 w-5 object-contain brightness-0 invert" />
+            </a>
+          </div>
         </div>
       </header>
 

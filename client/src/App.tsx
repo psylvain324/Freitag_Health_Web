@@ -1,18 +1,35 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import JoinHome from "./pages/JoinHome";
+import InsureHome from "./pages/InsureHome";
+import InsureRequest from "./pages/InsureRequest";
 import Apply from "./pages/Apply";
 import LandingRecruitment from "./pages/LandingRecruitment";
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
-      <Route path="" component={Home} />
+    <>
+      <ScrollToTop />
+      <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/join" component={JoinHome} />
+      <Route path="/insure" component={InsureHome} />
+      <Route path="/insure/request" component={InsureRequest} />
       <Route path="/apply" component={Apply} />
       <Route path="/careers" component={LandingRecruitment} />
       <Route path="/my-story" component={LandingRecruitment} />
@@ -20,6 +37,7 @@ function Router() {
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }
 
